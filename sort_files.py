@@ -70,12 +70,12 @@ def move_to_new(src_path: str, dest_path: str) -> int:
     Returns:
         [int]: [Number of files that have been moved]
     """
-    num_pics = 0
+    num_files = 0
     mkdir(dest_path)
     for subdir, dirs, files in tqdm(walk(src_path), desc = "Unpacking Files", ncols=50):
         subdir = subdir.replace('\\', '/')
         for file in files:
-            num_pics = num_pics + 1
+            num_files = num_files + 1
             try:
                 shutil.move(subdir + f'/{file}', dest_path)
             except:
@@ -86,7 +86,7 @@ def move_to_new(src_path: str, dest_path: str) -> int:
                 file1 = file.replace('.', x + '.')
                 rename(subdir + f'/{file}', subdir + f'/{file1}')
                 shutil.move(subdir + f'/{file1}', dest_path)
-    return num_pics
+    return num_files
 
 def organize_month_day_year(file_path: str, lmod: bool = False) -> None:
     """Organizes a directory(file_path) by creating a directory 
@@ -119,6 +119,9 @@ def organize_by_year(file_path: str) -> None:
 
 def main():
     source_path = input("Enter the path to the folder you want to sort: ")
+    while not exists(source_path):
+        print('That path does not exist, try another one.')
+        source_path = input("Enter the path to the folder you want to sort: ")
     destination_path = source_path + "-Sorted"
     if exists(destination_path):
         cntr = 1
@@ -136,10 +139,10 @@ def main():
             print('Invalid Choice...')
 
     start_time = time()
-    num_pics = move_to_new(source_path, destination_path)
+    num_files = move_to_new(source_path, destination_path)
     organize_month_day_year(destination_path)
     organize_by_year(destination_path)
-    print(f"{num_pics} files sorted successfully to '{destination_path}' in %s seconds" % round((time() - start_time), 3))
+    print(f"{num_files} files sorted successfully to '{destination_path}' in %s seconds" % round((time() - start_time), 3))
 
 if __name__ == '__main__':
     main()
