@@ -2,7 +2,7 @@
 
 This script will sort a directory of your choosing. You can choose to sort by either creation date or last modified. This is espcially useful for drives/directories that contain thousands of unsorted pictures. The script will unpack all files from the passed directory and it's sub directories. It will then move them into a new directory, which it will then sort.
 
-How to Run:
+How to Run (or follow the example):
 
 1. Clone Repo
 2. Navigate to some/file/path/sort-files
@@ -37,6 +37,29 @@ Example of file structure after sort:
 
 ## Step by Step
 
-1. Navigate to the directory that you want to sort
+1. Clone Repo
+2. Navigate to some/file/path/sort-files
+3. If you do not have pipenv installed, install it using 
+
+```$ pip install pipenv``` - installs pipenv
+
+```$ pipenv install``` - installs dependencies
+
+4. Navigate to the directory that you want to sort, in this case "/Volumes/LEXAR\ MEDIA/DCIM/100CANON" (contains 672 images)
 
 ![terminal](https://github.com/gfdb/sort-files/blob/main/example_pics/unsorted.png?raw=true)
+
+![terminal](https://github.com/gfdb/sort-files/blob/main/example_pics/terminal.png?raw=true)
+
+5. Copy directory path
+6. Run the script using pipenv
+
+```$ pipenv run python sort_files.py```
+
+7. Paste directory path from your clipboard and choose whether you want to sort by creation date or last modified.
+
+![terminal](https://github.com/gfdb/sort-files/blob/main/example_pics/output.png?raw=true)
+
+8. Go check out your sorted files.
+
+![terminal](https://github.com/gfdb/sort-files/blob/main/example_pics/sorted.png?raw=true)
