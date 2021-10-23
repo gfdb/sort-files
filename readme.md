@@ -33,3 +33,10 @@ Example of file structure after sort:
 &emsp; +-- Jan 20 2021
 
 &emsp; +-- Jan 21 2021
+
+
+## Step by Step
+
+1. Navigate to the directory that you want to sort
+
+![terminal](https://github.com/gfdb/sort-files/blob/main/example_pics/unsorted.png?raw=true)
