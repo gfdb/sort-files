@@ -63,3 +63,5 @@ Example of file structure after sort:
 8. Go check out your sorted files.
 
 ![terminal](https://github.com/gfdb/sort-files/blob/main/example_pics/sorted.png?raw=true)
+
+* Note that the speed of the sort will change depending on where the directory is located. In this case, sorting the files on this 2GB SD card took about 7 seconds. When running the script on a directory of the same size stored on my internal ssd, the script took ~0.4 seconds.
